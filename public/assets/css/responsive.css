@@ -1,0 +1,15 @@
+@media (max-width: 991px) {
+    .login-card .card-body {
+        padding: 1.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .login-card {
+        border: 0px;
+    }
+
+    .login-card .card-body {
+        padding: 1.5rem 0px;
+    }
+}

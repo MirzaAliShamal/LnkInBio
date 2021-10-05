@@ -1,0 +1,515 @@
+body {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+#help {
+    display: inline-block;
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    background-color: #00E3A1;
+    color: #000000;
+    font-size: 14px;
+    height: 35px;
+    width: 70px;
+    line-height: 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 999;
+}
+
+.font-weight-300 {
+    font-weight: 300;
+}
+
+.font-weight-400 {
+    font-weight: 400;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.logo-style-1 img {
+    width: 120px;
+}
+
+.form-floating {
+    margin-bottom: 1.5rem;
+}
+
+.form-floating input {
+    border-color: #f4f4f4;
+    background-color: #f4f4f4;
+}
+
+.form-floating input:focus {
+    box-shadow: none;
+    border-color: #000000;
+    background-color: #f4f4f4;
+}
+
+.form-floating .is-invalid:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.form-floating label {
+    color: #8B8585;
+    font-size: 15px;
+}
+
+.form-check input:focus {
+    box-shadow: none;
+}
+
+.form-check label {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+
+
+/*******************************************
+                LEFT ASIDE
+*******************************************/
+.left-aside {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    border-right: 1px solid #DEDEDE;
+    height: 100vh;
+    min-width: 150px;
+    z-index: 99;
+}
+
+.left-aside .aside-logo {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 0rem;
+    height: 15%;
+}
+
+.left-aside .aside-logo img {
+    width: 120px;
+}
+
+.left-aside .aside-menu {
+    display: block;
+    height: 65%;
+    padding: 4rem 0rem;
+}
+
+.left-aside .aside-menu ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.left-aside .aside-menu ul li {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.left-aside .aside-menu ul li a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0A0B0D;
+    text-decoration: none;
+    transition: 0.3s all ease-in-out;
+}
+
+.left-aside .aside-menu ul li a:hover {
+    color: #4747A7;
+    text-decoration: none;
+    transition: 0.3s all ease-in-out;
+}
+
+.left-aside .aside-avatar {
+    display: block;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    padding: 2rem 0rem;
+    cursor: pointer;
+}
+
+.left-aside .aside-avatar .image-outer {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.left-aside .aside-avatar .image-outer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.left-aside .aside-avatar p {
+    font-weight: 600;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*******************************************
+                    HEADER
+*******************************************/
+main {
+    margin-left: 150px;
+    margin-right: 250px;
+}
+main .header {
+    position: fixed;
+    top: 0px;
+    display: flex;
+    width: calc(100% - 400px);
+    height: 70px;
+    border-bottom: 1px solid #DEDEDE;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+main .header p {
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+main .header small {
+    color: #777373;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-left: 1rem;
+}
+
+main .header .my-link {
+    font-size: 13px;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+
+
+
+
+/*******************************************
+                RIGHT ASIDE
+*******************************************/
+.right-aside {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    border-left: 1px solid #4747A7;
+    height: 100vh;
+    min-width: 250px;
+    background-color: #4747A7;
+    z-index: 99;
+}
+
+.right-aside .aside-share {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.right-aside .btn-share {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    height: 35px;
+    width: 70px;
+    transition: 0.3s all ease-in-out;
+}
+
+.right-aside .btn-share:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transition: 0.3s all ease-in-out;
+}
+
+
+
+/*******************************************
+                LINK PREVIEW
+*******************************************/
+.link-preview {
+    position: fixed;
+    top: 15%;
+    right: 10%;
+    transform-origin: top right;
+    margin: 0 auto;
+    padding: 14px;
+    height: auto;
+    width: auto;
+    display: inline-block;
+    text-align: left;
+    border-radius: 50px;
+    box-shadow: 0 0px 30px rgb(0 0 0 / 20%);
+    transform: scale(0.7) translateX(-50%) translateY(-50%) translate3d(50%, 50%, 0px);
+}
+
+.link-preview::after {
+    content: "";
+    background-image: url('../images/mobile-outer.svg');
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.link-preview-iframe-container {
+    width: 325px;
+    height: 700px;
+    overflow: hidden;
+    border-radius: 50px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.link-preview-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/*******************************************
+                MAIN INNER
+*******************************************/
+main .main-inner {
+    display: block;
+    margin-top: 70px;
+    margin-right: 350px;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto !important;
+}
+
+main .main-inner::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+main .main-inner::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+main .main-inner::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #DEDEDE;
+}
+
+main .main-inner .page-heading {
+    padding: 1rem 0rem;
+    margin: 0 auto;
+}
+
+main .main-inner .page-content {
+    padding: 1rem 2rem;
+    margin: 0 auto;
+}
+
+main .main-inner .page-inner {
+    max-width: 600px;
+}
+
+main .main-inner .btn-main {
+    display: block;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #FF9F31;
+    border: 1px solid #FF9F31;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+    text-align: center;
+    transition: 0.3s all ease-in-out;
+}
+
+main .main-inner .btn-main:hover {
+    background-color: rgba(255,154,29,.7);
+    border: 1px solid rgba(255,154,29,.7);
+    transition: 0.3s all ease-in-out;
+}
+
+main .main-inner .link-container {
+    margin-top: 3rem;
+}
+
+.link-single {
+    margin-bottom: 2rem;
+    background-color: #F4F4F4;
+    border: 1px solid #F4F4F4;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.link-single .link-handle {
+    border-right: 1px solid #DEDEDE;
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: auto;
+    padding: 1rem .5rem;
+    cursor: grab;
+}
+
+.link-single .link-handle i {
+    color: #C4C4C4;
+    font-size: 22px;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.link-single .link-main {
+    width: 100%;
+    padding: 1.2rem 1rem;
+}
+
+.link-single .link-main .title p {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.link-single .link-main .title input,
+.link-single .link-main .title input:focus,
+.link-single .link-main .title input:focus-visible,
+.link-single .link-main .title input:focus-visible,
+.link-single .link-main .title input:active {
+    background-color: transparent;
+    background-image: none;
+    border-radius: 0px;
+    outline: none;
+    box-shadow: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    appearance: none;
+    border: 0px;
+    width: 100%;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.link-single .link-main .url p {
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.link-single .link-main .url input,
+.link-single .link-main .url input:focus,
+.link-single .link-main .url input:focus-visible,
+.link-single .link-main .url input:focus-visible,
+.link-single .link-main .url input:active {
+    background-color: transparent;
+    background-image: none;
+    border-radius: 0px;
+    outline: none;
+    box-shadow: none;
+    font-style: inherit;
+    font-variant: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    appearance: none;
+    border: 0px;
+    width: 100%;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+.link-single .link-main .title span i,
+.link-single .link-main .url span i{
+    font-size: 14px;
+    color: #C4C4C4;
+    margin-left: 5px;
+}
+
+.link-single .link-main .link-footer {
+    margin: 0px;
+    padding: 0px;
+}
+
+.link-single .link-main .link-footer span {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.link-single .link-main .link-footer span:last-child {
+    margin-right: 0px;
+}
+
+.link-single .link-main .link-footer span svg {
+    height: 18px;
+    width: 18px;
+    color: #6B6A6A;
+}
+
+.link-single .link-main .link-switcher .form-check-input {
+    cursor: pointer;
+}
+.link-single .link-main .link-switcher .form-check-input:checked {
+    background-color: #6B6A6A;
+    border-color: #6B6A6A;
+}

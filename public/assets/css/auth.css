@@ -1,0 +1,161 @@
+body {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+#help {
+    display: inline-block;
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    background-color: #00E3A1;
+    color: #000000;
+    font-size: 14px;
+    height: 35px;
+    width: 70px;
+    line-height: 35px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 999;
+}
+
+.font-weight-300 {
+    font-weight: 300;
+}
+
+.font-weight-400 {
+    font-weight: 400;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.logo-style-1 img {
+    width: 120px;
+}
+
+.form-floating {
+    margin-bottom: 1.5rem;
+}
+
+.form-floating input {
+    border-color: #f4f4f4;
+    background-color: #f4f4f4;
+}
+
+.form-floating input:focus {
+    box-shadow: none;
+    border-color: #000000;
+    background-color: #f4f4f4;
+}
+
+.form-floating .is-invalid:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.form-floating label {
+    color: #8B8585;
+    font-size: 15px;
+}
+
+.form-check input:focus {
+    box-shadow: none;
+}
+
+.form-check label {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+
+/*******************************************
+                LOGIN CARD
+*******************************************/
+.login-card {
+    background-color: #ffffff;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+}
+
+.login-card .card-body {
+    padding: 1.5rem 4rem;
+}
+
+.btn-login {
+    display: block;
+    width: 100%;
+    height: 45px;
+    line-height: 40px;
+    padding: 0px;
+    margin-bottom: 1rem;
+    box-shadow: none;
+    border: 1px solid #4747A7;
+    background-color: #4747A7;
+    border-radius: 10px;
+    font-weight: 600;
+    color: #ffffff;
+    transition: .3s all ease-in-out;
+}
+
+.btn-login:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+    outline: none;
+    color: #8B8585;
+    border: 1px solid #DEDEDE;
+    background-color: #DEDEDE;
+    transition: .3s all ease-in-out;
+}
+
+.btn-login:focus,
+.btn-login:active {
+    box-shadow: none;
+    outline: none;
+    color: #ffffff;
+    border: 1px solid #4747A7;
+    background-color: #4747A7;
+    transition: .3s all ease-in-out;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    transition: .3s all ease-in-out;
+}
+
+.login-card p {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+
+
+
+
+
+
