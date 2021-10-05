@@ -25,6 +25,13 @@ Route::prefix('ajax')->group(function() {
     Route::get('/validate-username', 'AjaxController@validateUsername')->name('validate.username');
     Route::get('/username-exists', 'AjaxController@usernameExists')->name('username.exists');
     Route::get('/email-exists', 'AjaxController@emailExists')->name('email.exists');
+    Route::get('/delete-box','AjaxController@deleteBox')->name('actionBox.delete');
+    Route::get('/delete-link/{id?}','AjaxController@deletelink')->name('delete.link');
+    Route::get('/add-thumbnail-box','AjaxController@addThumbnailBox')->name('actionBox.addThumbnail');
+    Route::get('/leap-link-box','AjaxController@leapLinkBox')->name('actionBox.leapLink');
+    Route::get('/link-analytics-box','AjaxController@linkAnalyticsBox')->name('actionBox.linkAnalytics');
+    Route::get('/priority-link-box','AjaxController@priorityLinkBox')->name('actionBox.priorityLink');
+    Route::get('/Schedule-link-box','AjaxController@scheduleLinkBox')->name('actionBox.scheduleLink');
 });
 
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function() {

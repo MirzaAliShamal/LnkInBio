@@ -32,10 +32,10 @@
 </head>
 <body class="font-manrope">
 
-    <div class="preview-body appearance-default">
+    <div class="preview-body appearance-one">
         <div class="preview-container">
             <div class="preview-main">
-                <div class="preview-background preview-body-appearance-default"></div>
+                <div class="preview-background preview-body-appearance-one"></div>
                 <div class="intro-area">
                     <div class="avatar">
                         <img src="{{ asset($user->avatar) }}" class="img-fluid" alt="Avatar">

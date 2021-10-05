@@ -90,11 +90,10 @@ a:hover {
 }
 
 
-
-
 /*******************************************
                 LEFT ASIDE
 *******************************************/
+
 .left-aside {
     position: fixed;
     top: 0px;
@@ -176,13 +175,16 @@ a:hover {
     padding: 0px;
 }
 
+
 /*******************************************
                     HEADER
 *******************************************/
+
 main {
     margin-left: 150px;
     margin-right: 250px;
 }
+
 main .header {
     position: fixed;
     top: 0px;
@@ -213,12 +215,10 @@ main .header .my-link {
 }
 
 
-
-
-
 /*******************************************
                 RIGHT ASIDE
 *******************************************/
+
 .right-aside {
     position: fixed;
     top: 0px;
@@ -256,10 +256,10 @@ main .header .my-link {
 }
 
 
-
 /*******************************************
                 LINK PREVIEW
 *******************************************/
+
 .link-preview {
     position: fixed;
     top: 15%;
@@ -308,11 +308,10 @@ main .header .my-link {
 }
 
 
-
-
 /*******************************************
                 MAIN INNER
 *******************************************/
+
 main .main-inner {
     display: block;
     margin-top: 70px;
@@ -322,20 +321,20 @@ main .main-inner {
 }
 
 main .main-inner::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
 }
 
 main .main-inner::-webkit-scrollbar {
-	width: 10px;
-	background-color: #F5F5F5;
+    width: 10px;
+    background-color: #F5F5F5;
 }
 
 main .main-inner::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #DEDEDE;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #DEDEDE;
 }
 
 main .main-inner .page-heading {
@@ -369,8 +368,8 @@ main .main-inner .btn-main {
 }
 
 main .main-inner .btn-main:hover {
-    background-color: rgba(255,154,29,.7);
-    border: 1px solid rgba(255,154,29,.7);
+    background-color: rgba(255, 154, 29, .7);
+    border: 1px solid rgba(255, 154, 29, .7);
     transition: 0.3s all ease-in-out;
 }
 
@@ -477,9 +476,8 @@ main .main-inner .link-container {
     font-weight: 400;
 }
 
-
 .link-single .link-main .title span i,
-.link-single .link-main .url span i{
+.link-single .link-main .url span i {
     font-size: 14px;
     color: #C4C4C4;
     margin-left: 5px;
@@ -509,7 +507,77 @@ main .main-inner .link-container {
 .link-single .link-main .link-switcher .form-check-input {
     cursor: pointer;
 }
+
 .link-single .link-main .link-switcher .form-check-input:checked {
     background-color: #6B6A6A;
     border-color: #6B6A6A;
+}
+
+
+/*******************************************
+                Link Action Box
+*******************************************/
+
+.link-single.action-opened {
+    margin-bottom: 15px;
+}
+
+.action-wrapper {
+    background-color: #F4F4F4;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    text-align: center;
+    /* transition: 0.3s all ease-in-out; */
+}
+
+.action-hide {
+    display: none;
+}
+
+.link-single .link-main .link-footer span.action-active,
+.link-single .link-main .link-footer span.action-active svg {
+    color: #FF9F31;
+}
+
+.action-title {
+    text-align: center;
+    background: #fff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.action-title .close {
+    cursor: pointer;
+    font-size: 40px;
+    margin-right: 1rem;
+    line-height: 1;
+    float: right;
+}
+
+.action-body {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #8B8585;
+}
+
+.action-button {
+    padding: 15px 30px;
+}
+
+.action-button button {
+    display: block;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #FF9F31;
+    border: 1px solid #FF9F31;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+    text-align: center;
+    transition: 0.3s all ease-in-out;
 }

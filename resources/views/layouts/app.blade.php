@@ -95,17 +95,20 @@
                                                     </div>
                                                 </div>
                                                 <div class="link-footer d-flex">
-                                                    <span class="flex-1"><i data-feather="image"></i></span>
-                                                    <span class="flex-2"><i data-feather="star"></i></span>
-                                                    <span class="flex-3"><i data-feather="calendar"></i></span>
+                                                    <span class="flex-1 link-addThumbnail" onClick="actionBox(this, '{{ route('actionBox.addThumbnail') }}')"><i data-feather="image"></i></span>
+                                                    <span class="flex-2 link-priorityLink" onClick="actionBox(this, '{{ route('actionBox.priorityLink') }}')"><i data-feather="star"></i></span>
+                                                    <span class="flex-3 link-scheduleLink" onClick="actionBox(this, '{{ route('actionBox.scheduleLink') }}')"><i data-feather="calendar"></i></span>
                                                     <span class="flex-4"><i data-feather="lock"></i></span>
-                                                    <span class="flex-5"><i data-feather="bar-chart-2"></i></span>
-                                                    <span class="flex-6 ms-auto"><i data-feather="trash"></i></span>
+                                                    <span class="flex-5 link-linkAnalytics" onClick="actionBox(this, '{{ route('actionBox.linkAnalytics') }}')"><i data-feather="bar-chart-2"></i></span>
+                                                    <span class="flex-6 ms-auto link-delete" onClick="actionBox(this, '{{ route('actionBox.delete') }}')"><i data-feather="trash"></i></span>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="action-wrapper action-hide"></div>
                                     @endforeach
                                 </div>
+                                <style>
+                                </style>
                             </div>
                         </div>
                     </div>

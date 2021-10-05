@@ -18,3 +18,4 @@ function validateUsername($name) {
 function usernameExists($name) {
     return User::whereUsername($name)->exists();
 }
+

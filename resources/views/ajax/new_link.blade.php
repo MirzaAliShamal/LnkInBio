@@ -27,7 +27,8 @@
             <span class="flex-3"><i data-feather="calendar"></i></span>
             <span class="flex-4"><i data-feather="lock"></i></span>
             <span class="flex-5"><i data-feather="bar-chart-2"></i></span>
-            <span class="flex-6 ms-auto"><i data-feather="trash"></i></span>
+            <span class="flex-6 ms-auto link-delete" onClick="actionBox(this, '{{ route('actionBox.delete') }}')"><i data-feather="trash"></i></span>
         </div>
     </div>
 </div>
+<div class="action-wrapper action-hide"></div>

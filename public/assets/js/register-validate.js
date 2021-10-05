@@ -1,4 +1,4 @@
-let baseurl = document.head.querySelector('meta[name="baseurl"]').content;
+// let baseurl = document.head.querySelector('meta[name="baseurl"]').content;
 
 function nameValidate(elm) {
     const regex = /^[A-Za-z ]+$/;
