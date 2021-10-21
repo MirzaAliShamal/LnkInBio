@@ -1,5 +1,6 @@
 {{-- External Libraries --}}
 <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/vendor/croppie.css') }}">
 
 {{-- Fonts --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,6 +10,7 @@
 <link rel="stylesheet" href="{{ asset('assets/fonts/css/tabler-icons.css') }}">
 
 {{-- Stylesheet --}}
+<link rel="stylesheet" href="{{ asset('assets/css/animation.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 @yield('css')

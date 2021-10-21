@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\UserProfile;
 use App\Models\User;
 
 
@@ -19,3 +20,7 @@ function usernameExists($name) {
     return User::whereUsername($name)->exists();
 }
 
+function profile() {
+    $user = auth()->user();
+    return $user->userProfile;
+}

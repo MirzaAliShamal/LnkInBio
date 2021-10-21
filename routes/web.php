@@ -25,13 +25,13 @@ Route::prefix('ajax')->group(function() {
     Route::get('/validate-username', 'AjaxController@validateUsername')->name('validate.username');
     Route::get('/username-exists', 'AjaxController@usernameExists')->name('username.exists');
     Route::get('/email-exists', 'AjaxController@emailExists')->name('email.exists');
-    Route::get('/delete-box','AjaxController@deleteBox')->name('actionBox.delete');
-    Route::get('/delete-link/{id?}','AjaxController@deletelink')->name('delete.link');
-    Route::get('/add-thumbnail-box','AjaxController@addThumbnailBox')->name('actionBox.addThumbnail');
-    Route::get('/leap-link-box','AjaxController@leapLinkBox')->name('actionBox.leapLink');
-    Route::get('/link-analytics-box','AjaxController@linkAnalyticsBox')->name('actionBox.linkAnalytics');
-    Route::get('/priority-link-box','AjaxController@priorityLinkBox')->name('actionBox.priorityLink');
-    Route::get('/Schedule-link-box','AjaxController@scheduleLinkBox')->name('actionBox.scheduleLink');
+    Route::post('/upload-link-image', 'AjaxController@uploadLinkImage')->name('upload.link.image');
+    Route::post('/remove-link-image', 'AjaxController@removeLinkImage')->name('remove.link.image');
+    Route::post('/link-priority', 'AjaxController@linkPriority')->name('link.priority');
+    Route::get('/delete-link/{id?}', 'AjaxController@deleteLink')->name('delete.link');
+    Route::post('/upload-avatar', 'AjaxController@uploadAvatar')->name('upload.avatar');
+    Route::get('/remove-avatar', 'AjaxController@removeAvatar')->name('remove.avatar');
+    Route::post('/update-profile', 'AjaxController@updateProfile')->name('update.profile');
 });
 
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function() {
@@ -40,6 +40,10 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         Route::get('/', 'LinkController@links')->name('list');
         Route::get('/new', 'LinkController@new')->name('new');
         Route::post('/save', 'LinkController@save')->name('save');
+    });
+
+    Route::prefix('appearence')->name('appearence.')->group(function() {
+        Route::get('/', 'AppearenceController@appearence')->name('list');
     });
 
 });

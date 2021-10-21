@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('assets/fonts/css/tabler-icons.css') }}" media="screen">
 
     {{-- Stylesheet --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/animation.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/preview.css') }}" media="screen">
     <link rel="stylesheet" href="{{ asset('assets/css/appearances/appearance-default.css') }}" media="screen">
     <link rel="stylesheet" href="{{ asset('assets/css/appearances/appearance-one.css') }}" media="screen">
@@ -40,16 +41,18 @@
                     <div class="avatar">
                         <img src="{{ asset($user->avatar) }}" class="img-fluid" alt="Avatar">
                     </div>
-                    <div class="profile-title"><h1>{{ '@'.$user->username }}</h1></div>
-                    <div class="bio"><h2></h2></div>
+                    <div class="profile-title"><h1>{{ profile()->title }}</h1></div>
+                    <div class="bio"><h2>{{ profile()->bio }}</h2></div>
                 </div>
                 <div class="button-links">
                     @foreach ($links as $item)
-                    <div class="links">
+                    <div class="links {{ $item->animation }}">
                         <a href="{{ $item->link }}" target="_blank" class="link-item" data-position="{{ $item->position }}">
-                            <div class="link-thumb thumb-image">
-                                <img src="{{ asset('assets/images/avatar.jpg') }}" class="img-fluid" alt="Thumb">
-                            </div>
+                            @if (!is_null($item->image))
+                                <div class="link-thumb thumb-image">
+                                    <img src="{{ asset($item->image) }}" class="img-fluid" alt="Thumb">
+                                </div>
+                            @endif
                             <p class="link-text">{{ $item->title }}</p>
                         </a>
                     </div>

@@ -140,7 +140,7 @@ a:hover {
 }
 
 .forgot-password {
-    display: block;
+    display: inline-block;
     text-align: center;
     font-size: 15px;
     font-weight: 400;

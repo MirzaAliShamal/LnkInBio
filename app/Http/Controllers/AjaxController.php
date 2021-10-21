@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Link;
+use File;
+use Str;
 
 class AjaxController extends Controller
 {
@@ -51,82 +53,221 @@ class AjaxController extends Controller
         }
     }
 
-    public function deleteBox(Request $req){
+    public function uploadLinkImage(Request $req)
+    {
         if ($req->ajax()) {
+            $req->validate([
+                'id' => 'required',
+                'type' => 'required',
+            ]);
+
+            $user = auth()->user();
+            $link = Link::find($req->id);
+
+            $rand = Str::random(10);
+
+            if ($req->type == "thumb") {
+                $req->validate([
+                    'image' => 'required',
+                ]);
+
+                $image_parts = explode(";base64,", $req->image);
+                $image_type_aux = explode("image/", $image_parts[0]);
+                $extension = $image_type_aux[1];
+                $img = base64_decode($image_parts[1]);
+
+                $path = public_path().'/assets/users/user-' . $user->id . '/thumbnails';
+
+                if (! File::exists($path)) {
+                    File::makeDirectory($path, $mode = 0777, true, true);
+                }
+
+
+                if (file_put_contents($path."/thumbnail-".$rand.".".$extension, $img)) {
+                    $link->image = "assets/users/user-".$user->id."/thumbnails/thumbnail-".$rand.".".$extension;
+                    $link->save();
+
+                    return response()->json([
+                        'statusCode' => 200,
+                        'message' => 'Link Image updated successfully!',
+                    ]);
+                } else {
+                    return response()->json([
+                        'statusCode' => 422,
+                        'message' => 'Something went wrong, Please try again!',
+                    ]);
+                }
+            }
+            if ($req->type == "icon") {
+                $req->validate([
+                    'icon' => 'required',
+                ]);
+
+                $link->image = "assets/icons/tabler-icons/".$req->icon.".svg";
+                $link->save();
+
+                return response()->json([
+                    'statusCode' => 200,
+                    'message' => 'Link Image updated successfully!',
+                ]);
+            }
+
+        } else {
+            abort(404);
+        }
+    }
+
+    public function removeLinkImage(Request $req)
+    {
+        if ($req->ajax()) {
+            $req->validate([
+                'id' => 'required',
+            ]);
+
+            $user = auth()->user();
+            $link = Link::find($req->id);
+
+            $link->image = null;
+            $link->save();
+
             return response()->json([
                 'statusCode' => 200,
-                'html' => view('ajax.delete_link', get_defined_vars())->render(),
+                'message' => 'Link Image removed successfully!',
             ]);
         } else {
             abort(404);
         }
     }
 
-    public function addThumbnailBox(Request $req){
+    public function linkPriority(Request $req)
+    {
         if ($req->ajax()) {
+            $req->validate([
+                'id' => 'required',
+                'animation' => 'required',
+            ]);
+
+            $user = auth()->user();
+            $link = Link::find($req->id);
+
+            if ($link->animation == "none") {
+                $link->animation = null;
+            } else {
+                $link->animation = $req->animation;
+            }
+            $link->save();
+
             return response()->json([
                 'statusCode' => 200,
-                'html' => view('ajax.add_thumbnail', get_defined_vars())->render(),
+                'message' => 'Link Priority Set Successfully!',
             ]);
         } else {
             abort(404);
         }
     }
 
-    public function leapLinkBox(Request $req){
-        if ($req->ajax()) {
-            return response()->json([
-                'statusCode' => 200,
-                'html' => view('ajax.leap_link', get_defined_vars())->render(),
-            ]);
-        } else {
-            abort(404);
-        }
-    }
-
-    public function linkAnalyticsBox(Request $req){
-        if ($req->ajax()) {
-            return response()->json([
-                'statusCode' => 200,
-                'html' => view('ajax.link_analytics', get_defined_vars())->render(),
-            ]);
-        } else {
-            abort(404);
-        }
-    }
-
-    public function priorityLinkBox(Request $req){
-        if ($req->ajax()) {
-            return response()->json([
-                'statusCode' => 200,
-                'html' => view('ajax.priority_link', get_defined_vars())->render(),
-            ]);
-        } else {
-            abort(404);
-        }
-    }
-
-    public function scheduleLinkBox(Request $req){
-        if ($req->ajax()) {
-            return response()->json([
-                'statusCode' => 200,
-                'html' => view('ajax.schedule_link', get_defined_vars())->render(),
-            ]);
-        } else {
-            abort(404);
-        }
-    }
-
-    public function deleteLink(Request $req, $id = null){
+    public function deleteLink(Request $req, $id = null)
+    {
         if($req->ajax()){
             $result = Link::where('id', $id)->delete();
             return response()->json([
                 'statusCode' => 200,
-                'id' => $id,
-                'html' => $result,
+                'message' => 'Link deleted successfully',
             ]);
         } else {
             abort(404);
         }
+    }
+
+    public function uploadAvatar(Request $req)
+    {
+        if ($req->ajax()) {
+            $req->validate([
+                'avatar' => 'required',
+            ]);
+
+            $user = auth()->user();
+
+            $rand = Str::random(10);
+
+            $image_parts = explode(";base64,", $req->avatar);
+            $image_type_aux = explode("image/", $image_parts[0]);
+            $extension = $image_type_aux[1];
+            $img = base64_decode($image_parts[1]);
+
+            $path = public_path().'/assets/users/user-' . $user->id;
+
+            if (! File::exists($path)) {
+                File::makeDirectory($path, $mode = 0777, true, true);
+            }
+
+            if ($user->avatar != "assets/images/avatar.png" && File::exists(public_path()."/".$user->avatar)) {
+                File::delete(public_path()."/".$user->avatar);
+            }
+
+            if (file_put_contents($path."/user-".$user->id."-".$rand.".".$extension, $img)) {
+                $user->avatar = "assets/users/user-".$user->id."/user-".$user->id."-".$rand.".".$extension;
+                $user->save();
+
+                return response()->json([
+                    'statusCode' => 200,
+                    'message' => 'Profile Image updated successfully!',
+                ]);
+            } else {
+                return response()->json([
+                    'statusCode' => 422,
+                    'message' => 'Something went wrong, Please try again!',
+                ]);
+            }
+        } else {
+            abort(404);
+        }
+
+    }
+
+    public function removeAvatar(Request $req)
+    {
+        if ($req->ajax()) {
+            $user = auth()->user();
+
+            if ($user->avatar != "assets/images/avatar.png" && File::exists(public_path()."/".$user->avatar)) {
+                File::delete(public_path()."/".$user->avatar);
+            }
+
+            $user->avatar = "assets/images/avatar.png";
+            $user->save();
+
+            return response()->json([
+                'statusCode' => 200,
+                'message' => 'Profile Image deleted successfully!',
+                'image' => asset($user->avatar),
+            ]);
+        } else {
+            abort(404);
+        }
+    }
+
+    public function updateProfile(Request $req)
+    {
+        if ($req->ajax()) {
+
+            $profile = profile();
+            if (isset($req->title)) {
+                $profile->title = $req->title;
+            }
+            if (isset($req->bio)) {
+                $profile->bio = $req->bio;
+            }
+            $profile->save();
+
+            return response()->json([
+                'statusCode' => 200,
+                'message' => 'Profile updated successfully!',
+            ]);
+
+        } else {
+            abort(404);
+        }
+
     }
 }

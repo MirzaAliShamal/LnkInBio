@@ -14,6 +14,8 @@ class Link extends Model
         'position',
         'title',
         'link',
+        'image',
+        'animation',
         'status',
     ];
 }

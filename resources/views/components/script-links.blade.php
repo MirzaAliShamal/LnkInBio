@@ -3,6 +3,7 @@
 <script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/vendor/drag-arrange.min.js') }}"></script>
 <script src="{{ asset('assets/js/vendor/sortable.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/croppie.js') }}"></script>
 
 {{-- Fonts --}}
 <script src="{{ asset('assets/fonts/js/pro.min.js') }}"></script>

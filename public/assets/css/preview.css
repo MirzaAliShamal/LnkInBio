@@ -1,3 +1,37 @@
+/* Animations */
+.flash {
+    animation: 2s linear 0s infinite normal none running flash;
+}
+
+.tada {
+    animation: 2s linear 0s infinite normal none running tada;
+}
+
+.jello {
+    animation: 2s linear 0s infinite normal none running jello;
+}
+
+.heartBeat {
+    animation: 2s linear 0s infinite normal none running heartBeat;
+}
+
+.flash-holder:hover {
+    animation: 2s linear 0s infinite normal none running flash;
+}
+
+.tada-holder:hover {
+    animation: 2s linear 0s infinite normal none running tada;
+}
+
+.jello-holder:hover {
+    animation: 2s linear 0s infinite normal none running jello;
+}
+
+.heartBeat-holder:hover {
+    animation: 2s linear 0s infinite normal none running heartBeat;
+}
+
+
 /* Background presets */
 .preview-body-appearance-default {
     background: #ffffff;
