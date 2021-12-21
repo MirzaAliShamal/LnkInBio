@@ -1,3 +1,7 @@
+.preview-body-appearance-default {
+    background: #ffffff;
+}
+
 .appearance-default .intro-area .profile-title h1 {
     color: rgb(0, 0, 0);
 }
@@ -23,12 +27,4 @@
 .appearance-default .button-links .links:hover {
     box-shadow: rgb(8 49 112 / 24%) 0px 4px 12px 0px;
     transform: scale(1.01);
-}
-
-.appearance-default .button-links .links .link-item .link-thumb {
-    border-radius: 0%;
-}
-
-.appearance-default .button-links .links .link-item .link-thumb i {
-    color: rgb(255, 255, 255);
 }

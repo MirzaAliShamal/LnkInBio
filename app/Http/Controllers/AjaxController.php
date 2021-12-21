@@ -66,7 +66,7 @@ class AjaxController extends Controller
 
             $rand = Str::random(10);
 
-            if ($req->type == "thumb") {
+            if ($req->type == "image") {
                 $req->validate([
                     'image' => 'required',
                 ]);
@@ -84,6 +84,7 @@ class AjaxController extends Controller
 
 
                 if (file_put_contents($path."/thumbnail-".$rand.".".$extension, $img)) {
+                    $link->thumb_type = $req->type;
                     $link->image = "assets/users/user-".$user->id."/thumbnails/thumbnail-".$rand.".".$extension;
                     $link->save();
 
@@ -103,6 +104,7 @@ class AjaxController extends Controller
                     'icon' => 'required',
                 ]);
 
+                $link->thumb_type = $req->type;
                 $link->image = "assets/icons/tabler-icons/".$req->icon.".svg";
                 $link->save();
 
@@ -268,6 +270,91 @@ class AjaxController extends Controller
         } else {
             abort(404);
         }
+    }
 
+    public function hideLogo(Request $req)
+    {
+        if ($req->ajax()) {
+
+            $profile = profile();
+            $profile->hide_logo = $req->hide_logo;
+            $profile->save();
+
+            return response()->json([
+                'statusCode' => 200,
+                'message' => 'Logo Settings updated successfully!',
+            ]);
+
+        } else {
+            abort(404);
+        }
+    }
+
+    public function appearanceLayout(Request $req)
+    {
+        if ($req->ajax()) {
+
+            $req->validate([
+                'type' => 'required',
+            ]);
+
+            $profile = profile();
+            $profile->layout_type = $req->type;
+            if ($req->type == "theme") {
+                $req->validate([
+                    'name' => 'required',
+                ]);
+                $profile->theme = $req->name;
+            }
+            if ($req->type == "background") {
+                $req->validate([
+                    'background' => 'required',
+                    'background_color_one' => 'required',
+                    'background_color_two' => 'required',
+                    'direction' => 'required',
+                ]);
+                $profile->background = $req->background;
+                $profile->background_color_one = $req->background_color_one;
+                $profile->background_color_two = $req->background_color_two;
+                $profile->direction = $req->direction;
+            }
+            $profile->save();
+
+            return response()->json([
+                'statusCode' => 200,
+                'message' => 'Layout Updated Successfully!',
+            ]);
+
+        } else {
+            abort(404);
+        }
+    }
+
+    public function buttonsLayout(Request $req)
+    {
+        if ($req->ajax()) {
+
+            $req->validate([
+                'custom_button' => 'required',
+                'button_background_color' => 'required',
+                'button_font_color' => 'required',
+                'button_shadow_color' => 'required',
+            ]);
+
+            $profile = profile();
+            $profile->custom_button = $req->custom_button;
+            $profile->button_background_color = $req->button_background_color;
+            $profile->button_font_color = $req->button_font_color;
+            $profile->button_shadow_color = $req->button_shadow_color;
+            $profile->save();
+
+            return response()->json([
+                'statusCode' => 200,
+                'message' => 'Buttons Layout Updated Successfully!',
+            ]);
+
+        } else {
+            abort(404);
+        }
     }
 }

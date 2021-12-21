@@ -1,0 +1,22 @@
+.button-links .links {
+    margin-bottom: 24px;
+    border: 2px solid var(--shadow-color);
+    background-color: var(--button-background-color);
+    color: var(--font-color);
+    width: calc(100% - 12px);
+    box-shadow: var(--shadow-color) 12px 12px 0px 0px;
+    transition: 0.1s ease-in-out;
+    border-radius: 0px;
+}
+
+.button-links .links:hover {
+    border-color: var(--shadow-color);
+    color: var(--font-color);
+    transform: translate(4px, 4px);
+    box-shadow: var(--shadow-color) 8px 8px 0px 0px;
+    transition: 0.1s ease-in-out;
+}
+
+.button-links .links .link-item .link-image-thumb {
+    border-radius: 0px;
+}

@@ -150,6 +150,10 @@ a:hover {
     width: 45% !important;
 }
 
+.error-field {
+    border-color: #ff1731 !important;
+}
+
 
 
 
@@ -979,8 +983,18 @@ main .main-inner .link-container {
     border-radius: 5px;
     border: 1px solid #C4C4C4;
     font-size: 14px;
-    height: 100px;
+    height: 65px;
+    margin-bottom: 10px;
     resize: none;
+}
+
+.profile .form-check label {
+    font-weight: 700;
+}
+
+.profile .form-check input:checked {
+    background-color: #4747A7 !important;
+    border-color: #4747A7 !important;
 }
 
 .profile .profile-button button {
@@ -1019,4 +1033,320 @@ main .main-inner .link-container {
     width: 350px;
     height: 350px;
     margin: 0 auto;
+}
+
+
+
+
+/*******************************************
+                APPEARANCE
+*******************************************/
+
+.appearence-nav {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.appearence-nav ul {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}
+
+.appearence-nav ul li {
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+.appearence-nav ul li a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.appearence-nav ul li a.active {
+    color: #4747A7;
+    border-bottom: 2px solid #4747A7;
+}
+
+.appearence-nav ul li a:hover {
+    color: #4747A7;
+    transition: 0.4s ease-in-out;
+}
+
+.appearence-nav ul li a.inactive::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #4747A7;
+    transition: width .4s ease-in;
+}
+
+.appearence-nav ul li a.inactive:hover::after {
+    width: 100%;
+}
+
+.appearance {
+    background-color: #F4F4F4;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+}
+
+.appearance .active-banner {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    color: #5cb85c;
+    display: none;
+}
+
+.appearance .active .active-banner {
+    display: inline-block;
+}
+
+.appearance .theme-thumb {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+.appearance .theme-thumb .image {
+    width: auto;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.appearance .theme-thumb .image img {
+    width: auto;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: initial;
+    border-radius: 5px;
+}
+
+.appearance .theme-thumb .name {
+    position: absolute;
+    bottom: 0px;
+    height: 32px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.appearance .theme-thumb .name p {
+    margin-bottom: 0px;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.appearance .background-thumb {
+    position: relative;
+    cursor: pointer;
+}
+
+.appearance .background-thumb .image {
+    width: auto;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.appearance .background-thumb .image img {
+    width: auto;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: initial;
+    border-radius: 5px;
+}
+
+.appearance .background-thumb .name {
+    position: absolute;
+    bottom: 0px;
+    height: 32px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.appearance .background-thumb .name p {
+    margin-bottom: 0px;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.appearance .background-options {
+    margin-top: 60px;
+    display: flex;
+}
+
+.appearance .background-heading {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.appearance .background-color {
+    margin-right: 60px;
+}
+
+.appearance .background-color .colorpicker {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.appearance .background-color .colordisplay {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #d7dce1;
+}
+
+.appearance .background-color .colorinput {
+    color: #0A0B0D;
+    padding: 0 12px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    min-width: 85px;
+    max-width: 100px;
+    width: 100%;
+    border: 1px solid;
+    border-color: #eee;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.appearance .background-color .colorinput:focus {
+    box-shadow: none;
+    border-color: #000000;
+    background-color: #ffffff;
+}
+
+.appearance .background-gradient label {
+    display: flex;
+}
+
+.appearance .background-gradient .colorup {
+    display: inline-block;
+    border-radius: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
+    height: 30px;
+    width: 30px;
+    background: linear-gradient(0deg, rgb(61, 68, 75), rgb(233, 234, 235));
+}
+
+.appearance .background-gradient .colordown {
+    display: inline-block;
+    border-radius: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
+    height: 30px;
+    width: 30px;
+    background: linear-gradient(0deg, rgb(233, 234, 235), rgb(61, 68, 75));
+}
+
+.appearance .buttons-heading {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.appearance .buttons {
+    position: relative;
+    height: 42px;
+    width: auto;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.appearance .buttons-fill {
+    background-color: #282F37;
+}
+
+.appearance .buttons-outline {
+    background-color: transparent;
+    border: 2px solid #282F37;
+}
+
+.appearance .buttons-dark-shadow {
+    background-color: transparent;
+    border: 2px solid #282F37;
+    width: calc(100% - 6px);
+    box-shadow: #282F37 6px 6px 0px 0px;
+}
+
+.appearance .buttons-light-shadow {
+    background-color: transparent;
+    border: 2px solid #282F37;
+    box-shadow: rgb(40 47 55 / 24%) 0px 2px 8px 0px;
+}
+
+.appearance .buttons-rectangle {
+    border-radius: 0px;
+}
+
+.appearance .buttons-round {
+    border-radius: 5px;
+}
+
+.appearance .buttons-circle {
+    border-radius: 100px;
+}
+
+.appearance .buttons-options {
+    margin-top: 60px;
+    display: flex;
+}
+
+.appearance .buttons-options .colorpicker {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.appearance .buttons-options .buttoncolordisplay {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #d7dce1;
+}
+
+.appearance .buttons-options .buttoncolorinput {
+    color: #0A0B0D;
+    padding: 0 12px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    min-width: 85px;
+    max-width: 100px;
+    width: 100%;
+    border: 1px solid;
+    border-color: #eee;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.appearance .buttons-options .buttoncolorinput:focus {
+    box-shadow: none;
+    border-color: #000000;
+    background-color: #ffffff;
 }

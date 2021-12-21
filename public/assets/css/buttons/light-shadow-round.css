@@ -1,0 +1,19 @@
+.button-links .links {
+    border: 2px solid var(--button-background-color);
+    background-color: var(--button-background-color);
+    color: var(--font-color);
+    transform: scale(1);
+    box-shadow: var(--shadow-color) 0px 2px 8px 0px;
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.button-links .links:hover {
+    box-shadow:  var(--shadow-color) 0px 4px 12px 0px;
+    transform: scale(1.01);
+    transition: 0.3s ease-in-out;
+}
+
+.button-links .links .link-item .link-image-thumb {
+    border-radius: 5px;
+}

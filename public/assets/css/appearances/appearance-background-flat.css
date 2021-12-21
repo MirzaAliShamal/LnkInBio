@@ -1,0 +1,15 @@
+.preview-body-appearance-background-flat {
+    background-color: var(--background-color-one);
+}
+
+.appearance-background-flat .intro-area .profile-title h1 {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-background-flat .intro-area .bio h2 {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-background-flat .social-links .social-icon i {
+    color: rgb(255, 255, 255);
+}

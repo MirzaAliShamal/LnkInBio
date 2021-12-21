@@ -6,8 +6,18 @@ use Illuminate\Http\Request;
 
 class AppearenceController extends Controller
 {
-    public function appearence()
+    public function appearence($page = null)
     {
-        return view('dashboard.appearence', get_defined_vars());
+        $profile = profile();
+
+        if (is_null($page)) {
+            return view('dashboard.appearence.themes', get_defined_vars());
+        } else if ($page == "themes") {
+            return view('dashboard.appearence.themes', get_defined_vars());
+        } else if ($page == "backgrounds") {
+            return view('dashboard.appearence.backgrounds', get_defined_vars());
+        } else if ($page == "buttons") {
+            return view('dashboard.appearence.buttons', get_defined_vars());
+        }
     }
 }

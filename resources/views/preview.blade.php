@@ -13,6 +13,17 @@
     <meta property="twitter:url" content="http://127.0.0.1:8000/preview">
     <meta name="robots" content="noindex">
 
+    <style>
+        :root {
+            --background-color-one: <?php echo $user->userProfile->background_color_one; ?>;
+            --background-color-two: <?php echo $user->userProfile->background_color_two; ?>;
+            --direction: <?php echo $user->userProfile->direction.'deg'; ?>;
+            --button-background-color: <?php echo $user->userProfile->button_background_color; ?>;
+            --font-color: <?php echo $user->userProfile->button_font_color; ?>;
+            --shadow-color: <?php echo $user->userProfile->button_shadow_color; ?>;
+        }
+    </style>
+
     {{-- External Libraries --}}
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}" media="screen">
 
@@ -26,32 +37,52 @@
     {{-- Stylesheet --}}
     <link rel="stylesheet" href="{{ asset('assets/css/animation.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/preview.css') }}" media="screen">
-    <link rel="stylesheet" href="{{ asset('assets/css/appearances/appearance-default.css') }}" media="screen">
-    <link rel="stylesheet" href="{{ asset('assets/css/appearances/appearance-one.css') }}" media="screen">
+    @if ($user->userProfile->layout_type == "theme")
+        <link rel="stylesheet" href="{{ asset('assets/css/appearances/appearance-'.$user->userProfile->theme.'.css') }}" media="screen">
+    @endif
+    @if ($user->userProfile->layout_type == "background")
+        <link rel="stylesheet" href="{{ asset('assets/css/appearances/appearance-background-'.$user->userProfile->background.'.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('assets/css/buttons/'.$user->userProfile->custom_button.'.css') }}" media="screen">
+    @endif
 
     <link rel="canonical" href="http://127.0.0.1:8000/preview">
 </head>
 <body class="font-manrope">
 
-    <div class="preview-body appearance-one">
+    @if ($user->userProfile->layout_type == "theme")
+    <div class="preview-body appearance-{{ $user->userProfile->theme }}">
+    @endif
+    @if ($user->userProfile->layout_type == "background")
+    <div class="preview-body appearance-background-{{ $user->userProfile->background }}">
+    @endif
         <div class="preview-container">
             <div class="preview-main">
-                <div class="preview-background preview-body-appearance-one"></div>
+                @if ($user->userProfile->layout_type == "theme")
+                <div class="preview-background preview-body-appearance-{{ $user->userProfile->theme }}"></div>
+                @endif
+                @if ($user->userProfile->layout_type == "background")
+                <div class="preview-background preview-body-appearance-background-{{ $user->userProfile->background }}"></div>
+                @endif
                 <div class="intro-area">
                     <div class="avatar">
                         <img src="{{ asset($user->avatar) }}" class="img-fluid" alt="Avatar">
                     </div>
-                    <div class="profile-title"><h1>{{ profile()->title }}</h1></div>
-                    <div class="bio"><h2>{{ profile()->bio }}</h2></div>
+                    <div class="profile-title"><h1>{{ $user->userProfile->title }}</h1></div>
+                    <div class="bio"><h2>{{$user->userProfile->bio }}</h2></div>
                 </div>
                 <div class="button-links">
                     @foreach ($links as $item)
                     <div class="links {{ $item->animation }}">
                         <a href="{{ $item->link }}" target="_blank" class="link-item" data-position="{{ $item->position }}">
                             @if (!is_null($item->image))
-                                <div class="link-thumb thumb-image">
-                                    <img src="{{ asset($item->image) }}" class="img-fluid" alt="Thumb">
-                                </div>
+                                @if ($item->thumb_type == "image")
+                                    <div class="link-image-thumb thumb-image">
+                                        <img src="{{ asset($item->image) }}" class="img-fluid" alt="Thumb">
+                                    </div>
+                                @endif
+                                @if ($item->thumb_type == "icon")
+                                    <div class="link-icon-thumb thumb-icon" style="mask-image: url({{ asset($item->image) }}); -webkit-mask-image: url({{ asset($item->image) }});"></div>
+                                @endif
                             @endif
                             <p class="link-text">{{ $item->title }}</p>
                         </a>
@@ -65,9 +96,11 @@
                     <a href="" target="_blank" class="social-icon"><i class="ti ti-mail"></i></a> --}}
                 </div>
             </div>
-            <div class="preview-footer">
-                <a href="" target="_blank"><img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="Brand Logo"></a>
-            </div>
+            @if (!$user->userProfile->hide_logo)
+                <div class="preview-footer">
+                    <a href="" target="_blank"><img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="Brand Logo"></a>
+                </div>
+            @endif
         </div>
     </div>
 

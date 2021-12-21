@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="page-heading">
-    <h3>Profile</h3>
+    <h3>Apperance</h3>
 </div>
 
 <div class="page-content">
@@ -30,8 +30,26 @@
                         <label for="profile_bio">Bio</label>
                         <textarea name="profile_bio" id="profile_bio" class="profile-bio" placeholder="Fill out your bio">{{ profile()->bio }}</textarea>
                     </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="hide_logo">
+                            Hide the LnkInBio logo
+                        </label>
+                        <input class="form-check-input" type="checkbox" id="hide_logo" name="hide_logo" {{ $profile->hide_logo ? 'checked' : '' }}>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="appearence-nav">
+            <ul>
+                <li><a href="{{ route('dashboard.appearence.list', 'themes') }}" class="{{ $page == 'themes' ? 'active' : 'inactive' }}">Themes</a></li>
+                <li><a href="{{ route('dashboard.appearence.list', 'backgrounds') }}" class="{{ $page == 'backgrounds' ? 'active' : 'inactive' }}">Background</a></li>
+                <li><a href="{{ route('dashboard.appearence.list', 'buttons') }}" class="{{ $page == 'buttons' ? 'active' : 'inactive' }}">Buttons</a></li>
+            </ul>
+        </div>
+
+        <div class="appearance">
+            @yield('appearence-content')
         </div>
     </div>
 </div>

@@ -1,0 +1,32 @@
+.preview-body-appearance-instagram {
+    background: linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)
+}
+
+.appearance-instagram .intro-area .profile-title h1 {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-instagram .intro-area .bio h2 {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-instagram .social-links .social-icon i {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-instagram .button-links .links {
+    border: 2px solid rgb(255, 255, 255);
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+    box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+    border-radius: 0px;
+}
+
+.appearance-instagram .button-links .links:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    color: #2E1437;
+    transition: 0.3s ease-in-out;
+}

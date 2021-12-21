@@ -1,0 +1,15 @@
+.preview-body-appearance-background-gradient {
+    background-image: linear-gradient(var(--direction), var(--background-color-one) 0%, var(--background-color-two) 100%);
+}
+
+.appearance-background-gradient .intro-area .profile-title h1 {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-background-gradient .intro-area .bio h2 {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-background-gradient .social-links .social-icon i {
+    color: rgb(255, 255, 255);
+}

@@ -32,6 +32,9 @@ Route::prefix('ajax')->group(function() {
     Route::post('/upload-avatar', 'AjaxController@uploadAvatar')->name('upload.avatar');
     Route::get('/remove-avatar', 'AjaxController@removeAvatar')->name('remove.avatar');
     Route::post('/update-profile', 'AjaxController@updateProfile')->name('update.profile');
+    Route::post('/hide-logo', 'AjaxController@hideLogo')->name('hide.logo');
+    Route::post('/appearance-layout', 'AjaxController@appearanceLayout')->name('appearance.layout');
+    Route::post('/buttons-layout', 'AjaxController@buttonsLayout')->name('buttons.layout');
 });
 
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function() {
@@ -43,7 +46,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     });
 
     Route::prefix('appearence')->name('appearence.')->group(function() {
-        Route::get('/', 'AppearenceController@appearence')->name('list');
+        Route::get('/{page?}', 'AppearenceController@appearence')->name('list');
     });
 
 });

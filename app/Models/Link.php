@@ -14,6 +14,7 @@ class Link extends Model
         'position',
         'title',
         'link',
+        'thumb_type',
         'image',
         'animation',
         'status',

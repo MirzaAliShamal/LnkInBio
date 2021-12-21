@@ -1,0 +1,68 @@
+1.Atlas color scheme:
+#4BC0C8
+#C779D0
+#FEAC5E
+2.back to futuer color scheme:
+#F0CB35
+#c9512f
+3.Beach color scheme:
+#64b3f4
+#c2e59c
+4.Between day and night:
+#3498db
+#2c3e50
+5.Blosoms color scheme:
+#bb377d
+#fbd3e9
+6.Blus color scheme:
+#b24592
+#f15f79
+7.Caramel color scheme:
+#FFD194
+#D1913C
+8.Cotton candy color scheme :
+#ffafbd
+#c9ffbf
+9.Dark and bright color scheme:
+#d7d2cc
+#304352
+10.Flow color scheme:
+#267871
+#136a8a
+11.Forever lost color scheme:
+#a8caba
+#5d4157
+12.Green bottle color scheme:
+#00bf8f
+#001510 
+13.Instagram color scheme:
+#fcb045
+#fd1d1d
+#833ab4
+14.Miami dolphins color scheme:
+#4da0b0
+#d39d38
+15.Minty shadow color scheme:
+#c9ffbf
+#215f00
+16.Nature color scheme:
+#114357
+#c2e59c
+17.Netflix color scheme:
+#1F1C18
+#8E0E00
+18.Pizelex color scheme:
+#114357
+#f29492
+19.Poncho color scheme:
+#BE5869
+#403A3E
+20.purple grapes color scheme:
+#2E1437
+#FEAC5E
+21.Sunset color scheme:
+#d39d38
+#f29492
+22.talking to mice color scheme:
+#2E1437
+#948E99

@@ -140,6 +140,52 @@ function saveUpdatedPosition() {
     // console.log(arr);
 }
 
+function getComplementryGradientColor() {
+    let colorOne = $("[name='background_color_one']").val();
+    let colorTwo = tinycolor(colorOne).analogous()[1].toHexString();
+
+    $("[name='background_color_two']").val(colorTwo);
+}
+
+function saveBackgroundLayout() {
+    $.ajax({
+        type: "POST",
+        url: ajaxurl+"/appearance-layout",
+        data: {
+            _token : csrf,
+            type: "background",
+            background: $(".background-thumb.active").data('name'),
+            background_color_one: $("[name='background_color_one']").val(),
+            background_color_two: $("[name='background_color_two']").val(),
+            direction: $("[name='direction']:checked").val(),
+        },
+        success: function (response) {
+            if (response.statusCode == 200) {
+                reloadIframe();
+            }
+        }
+    });
+}
+
+function saveButtonsLayout() {
+    $.ajax({
+        type: "POST",
+        url: ajaxurl+"/buttons-layout",
+        data: {
+            _token : csrf,
+            custom_button: $(".buttons.active").data('name'),
+            button_background_color: $("[name='button_background_color']").val(),
+            button_font_color: $("[name='button_font_color']").val(),
+            button_shadow_color: $("[name='button_shadow_color']").val(),
+        },
+        success: function (response) {
+            if (response.statusCode == 200) {
+                reloadIframe();
+            }
+        }
+    });
+}
+
 $(document).ready(function() {
 
     // Feather Icons
@@ -454,7 +500,6 @@ $(document).on("click", ".upload-image-btn", function(e) {
         uploadCrop.croppie('result', {
             type: 'base64',
             format: 'jpeg',
-            // size: {width: 250, height: 250}
         }).then(function (resp) {
             $.ajax({
                 type: "POST",
@@ -463,7 +508,7 @@ $(document).on("click", ".upload-image-btn", function(e) {
                     _token : csrf,
                     id: refLinkId,
                     image : resp,
-                    type : "thumb",
+                    type : "image",
                 },
                 success: function (response) {
                     if (response.statusCode == 200) {
@@ -534,4 +579,141 @@ $(document).on("blur", ".profile-bio", function(e) {
             }
         }
     });
+});
+
+$(document).on("change", "#hide_logo", function(e) {
+    let hide_logo;
+    if ($(this).is(":checked")) {
+        hide_logo = 1;
+    } else {
+        hide_logo = 0;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: ajaxurl+"/hide-logo",
+        data: {
+            _token : csrf,
+            hide_logo: hide_logo,
+        },
+        success: function (response) {
+            if (response.statusCode == 200) {
+                reloadIframe();
+            }
+        }
+    });
+});
+
+// Appearance
+$(document).on("click", ".theme-thumb", function(e) {
+    let elm = $(this);
+
+    $(".theme-thumb").removeClass('active');
+    elm.addClass('active');
+
+    $.ajax({
+        type: "POST",
+        url: ajaxurl+"/appearance-layout",
+        data: {
+            _token : csrf,
+            name: elm.data('name'),
+            type: "theme",
+        },
+        success: function (response) {
+            if (response.statusCode == 200) {
+                reloadIframe();
+            }
+        }
+    });
+});
+$(document).on("click", ".background-thumb", function(e) {
+    let elm = $(this);
+
+    $(".background-thumb").removeClass('active');
+    if (elm.data('name') == 'flat') {
+        $(".background-gradient").hide();
+        elm.addClass('active');
+    }
+    if (elm.data('name') == 'gradient') {
+        $(".background-gradient").show();
+        getComplementryGradientColor();
+        elm.addClass('active');
+    }
+    if (elm.data('name') == 'image') {
+        $(".background-gradient").hide();
+        elm.addClass('active');
+    }
+
+    saveBackgroundLayout();
+});
+$(document).on("change", "#colordisplay", function(e) {
+    let elm = $(this);
+    let color = elm.val();
+
+    $(".colorinput").val(color);
+    $(".colordisplay").css('background-color', color);
+    getComplementryGradientColor();
+    saveBackgroundLayout();
+});
+$(document).on("change", "[name='direction']", function(e) {
+    saveBackgroundLayout();
+});
+$(document).on("keyup", ".colorinput", function(e) {
+    let elm = $(this);
+    let color = elm.val();
+
+    if (color.indexOf('#') == -1) {
+        elm.val("#"+color);
+    }
+
+    if (color.length == 7) {
+        elm.removeClass('error-field');
+
+        $("#colordisplay").val(color).change();
+        getComplementryGradientColor();
+        saveBackgroundLayout();
+    } else {
+        elm.addClass('error-field');
+    }
+});
+$(document).on("click", ".buttons", function(e) {
+    let elm = $(this);
+
+    $(".buttons").removeClass('active');
+    if (elm.data('type') == 'shadow') {
+        $(".buttons-shadow-color").show();
+        elm.addClass('active');
+    } else {
+        $(".buttons-shadow-color").hide();
+        elm.addClass('active');
+    }
+
+    saveButtonsLayout();
+});
+$(document).on("change", ".buttoncolorchanger", function(e) {
+    let elm = $(this);
+    let parent = elm.closest('.colorpicker');
+    let color = elm.val();
+
+    parent.find(".buttoncolorinput").val(color);
+    parent.find(".buttoncolordisplay").css('background-color', color);
+    saveButtonsLayout();
+});
+$(document).on("keyup", ".buttoncolorinput", function(e) {
+    let elm = $(this);
+    let parent = elm.closest('.colorpicker');
+    let color = elm.val();
+
+    if (color.indexOf('#') == -1) {
+        elm.val("#"+color);
+    }
+
+    if (color.length == 7) {
+        elm.removeClass('error-field');
+
+        parent.find(".buttoncolorchanger").val(color).change();
+        saveButtonsLayout();
+    } else {
+        elm.addClass('error-field');
+    }
 });

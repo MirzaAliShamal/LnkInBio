@@ -1,0 +1,32 @@
+.preview-body-appearance-poncho {
+    background-image: linear-gradient(0deg, #BE5869, #403A3E);
+}
+
+.appearance-poncho .intro-area .profile-title h1 {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-poncho .intro-area .bio h2 {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-poncho .social-links .social-icon i {
+    color: rgb(255, 255, 255);
+}
+
+.appearance-poncho .button-links .links {
+    border: 2px solid rgb(255, 255, 255);
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+    box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+    border-radius: 0px;
+}
+
+.appearance-poncho .button-links .links:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    color: #2E1437;
+    transition: 0.3s ease-in-out;
+}
