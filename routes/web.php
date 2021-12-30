@@ -53,8 +53,8 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
 });
 
 Route::prefix('admin')->name('admin.')->group(function(){
-    Route::get('/login','Admin\Auth\AuthenticatedSessionController@create')->name('login');
-    Route::post('/login','Admin\Auth\AuthenticatedSessionController@store')->name('login.attempt');
+    Route::get('/login','Admin\Auth\AuthenticatedSessionController@create')->name('login')->middleware('guest');
+    Route::post('/login','Admin\Auth\AuthenticatedSessionController@store')->name('login.attempt')->middleware('guest');
     Route::post('/logout','Admin\Auth\AuthenticatedSessionController@destroy')->name('logout')->middleware('auth:admin');
     Route::get('/dashboard', 'admin\DashboardController@dashboard')->name('dashboard')->middleware('auth:admin');
 });
