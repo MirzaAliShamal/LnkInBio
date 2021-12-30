@@ -1,7 +1,7 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 require __DIR__.'/auth.php';
+
 
 
 Route::get('/{username?}', 'HomeController@home')->name('home');
@@ -49,4 +50,11 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
         Route::get('/{page?}', 'AppearenceController@appearence')->name('list');
     });
 
+});
+
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::get('/login','Admin\Auth\AuthenticatedSessionController@create')->name('login');
+    Route::post('/login','Admin\Auth\AuthenticatedSessionController@store')->name('login.attempt');
+    Route::post('/logout','Admin\Auth\AuthenticatedSessionController@destroy')->name('logout')->middleware('auth:admin');
+    Route::get('/dashboard', 'admin\DashboardController@dashboard')->name('dashboard')->middleware('auth:admin');
 });
